@@ -4,13 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
-    {{assets('css/global.css')}}
+    <link rel="stylesheet" href="{{asset('backend/css/global.css')}}">
+    <link rel="stylesheet" href="{{asset('backend/css/sidebar.css')}}">
 </head>
 <body>
-    @include('admin.partials.header')
-    @yield('content')
-    @include('admin.partials.footer')
-
-    {{assets('js/global.js')}}
+    <main>
+        <aside>
+            @include('admin.partials.sidebar')
+        </aside>
+        <div class="content">
+            @yield('content')
+        </div>
+    </main>
+    <script src="{{asset('backend/js/global.js')}}"></script>
 </body>
 </html>
